@@ -22,7 +22,7 @@ if (!Directory.Exists(baseAddress))
 var testFilepath = baseAddress + "\\test.txt";
 var inputFilepath = baseAddress + "\\input.txt";
 
-var solutions = new Dictionary<string, IAocSolution>() 
+var solutions = new Dictionary<string, IAocSolution>()
 {
     { "01", new Day01() },
     { "02", new Day02() },

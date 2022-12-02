@@ -6,7 +6,7 @@
         {
             input.Trim();
             string[] lineBreaks = { "\r\n", "\n", "\r" };
-            return input.Split(lineBreaks, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries ) ;
+            return input.Split(lineBreaks, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         }
     }
 }
