@@ -11,7 +11,7 @@ namespace AdventOfCode2022.Solutions
         public AocResult RunSolution(string input)
         {
             string[] elfSplit = { "\r\n\r\n", "\n\n", "\r\r" };
-            string[] foodSplit = { "\r\n", "\n", "\r" };
+            //string[] foodSplit = { "\r\n", "\n", "\r" };
 
             var elveStrings = input.Split(elfSplit, StringSplitOptions.RemoveEmptyEntries);
 
@@ -19,7 +19,7 @@ namespace AdventOfCode2022.Solutions
 
             foreach (var elveString in elveStrings)
             {
-                elves.Add(elveString.Split(foodSplit, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).Sum());
+                elves.Add(FileHelper.SplitIntoLines(elveString).Select(int.Parse).Sum());
             }
 
             elves = elves.OrderByDescending(x => x).ToList();

@@ -3,19 +3,21 @@
 using AdventOfCode2022;
 using AdventOfCode2022.Solutions;
 
-Console.WriteLine("Enter filepath");
-var filepath = Console.ReadLine();
+Console.WriteLine("AoC 2022");
+var testFilepath = @"C:\Users\sdawson1\OneDrive - Department for Education\Documents\2022AdventOfCode\test.txt";
+var inputFilepath = @"C:\Users\sdawson1\OneDrive - Department for Education\Documents\2022AdventOfCode\input.txt";
 
-if (filepath is null)
-{
-    return;
-}
+//var testString = File.OpenText(testFilepath).ReadToEnd();
+var mainString = File.OpenText(inputFilepath).ReadToEnd();
 
-var filestream = File.OpenText(filepath);
-var str = filestream.ReadToEnd();
+IAocSolution solution = new Day02();
+var testResult = solution.RunSolution(File.OpenText(testFilepath).ReadToEnd());
+var mainResult = solution.RunSolution(File.OpenText(inputFilepath).ReadToEnd());
 
-IAocSolution solution = new Day01();
-var result = solution.RunSolution(str);
-
-Console.WriteLine($"First Result {result.Result1}");
-Console.WriteLine($"Second Result {result.Result2}");
+Console.WriteLine("Test Results");
+Console.WriteLine($"First Result {testResult.Result1}");
+Console.WriteLine($"Second Result {testResult.Result2}");
+Console.WriteLine("----");
+Console.WriteLine("Main Results");
+Console.WriteLine($"First Result {mainResult.Result1}");
+Console.WriteLine($"Second Result {mainResult.Result2}");
