@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2022.Solutions
+﻿namespace AdventOfCode2022.Solutions
 {
     internal class Day02 : IAocSolution
     {
@@ -21,9 +15,9 @@ namespace AdventOfCode2022.Solutions
                 roundsV2.Add(new Round(ConvertToRps(parts[0]), ConvertToRoundResult(parts[1])));
             }
 
-            AocResult result = new() 
-            { 
-                Result1 = roundsV1.Sum(x => x.Score).ToString(), 
+            AocResult result = new()
+            {
+                Result1 = roundsV1.Sum(x => x.Score).ToString(),
                 Result2 = roundsV2.Sum(x => x.Score).ToString()
             };
             return result;
@@ -33,7 +27,7 @@ namespace AdventOfCode2022.Solutions
         {
             None = 0,
             Rock = 1,
-            Paper = 2, 
+            Paper = 2,
             Scissors = 3,
         }
 
@@ -96,8 +90,8 @@ namespace AdventOfCode2022.Solutions
         {
             public Round(RPS opponentMove, RPS myMove)
             {
-                OpponentMove= opponentMove;
-                MyMove= myMove;
+                OpponentMove = opponentMove;
+                MyMove = myMove;
                 RoundResult = CalculateRoundResult(opponentMove, myMove);
                 Score = ((int)RoundResult) + ((int)MyMove);
             }
@@ -147,7 +141,7 @@ namespace AdventOfCode2022.Solutions
                         return RoundResult.Win;
                     }
                 }
-                else if (opponentMove == RPS.Scissors )
+                else if (opponentMove == RPS.Scissors)
                 {
                     if (myMove == RPS.Rock)
                     {
@@ -165,7 +159,7 @@ namespace AdventOfCode2022.Solutions
                 return RoundResult.Loss;
             }
 
-            private RPS CalculateMyMove(RPS opponentMove, RoundResult roundResult) 
+            private RPS CalculateMyMove(RPS opponentMove, RoundResult roundResult)
             {
                 if (opponentMove == RPS.Rock)
                 {
@@ -216,6 +210,4 @@ namespace AdventOfCode2022.Solutions
             }
         }
     }
-
-
 }
