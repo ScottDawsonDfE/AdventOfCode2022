@@ -4,8 +4,9 @@
     {
         public static string[] SplitIntoLines(string input)
         {
+            input.Trim();
             string[] lineBreaks = { "\r\n", "\n", "\r" };
-            return input.Split(lineBreaks, StringSplitOptions.TrimEntries);
+            return input.Split(lineBreaks, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries ) ;
         }
     }
 }
