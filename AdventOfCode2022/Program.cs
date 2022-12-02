@@ -2,6 +2,7 @@
 
 using AdventOfCode2022;
 using AdventOfCode2022.Solutions;
+using Microsoft.VisualBasic.FileIO;
 
 Console.WriteLine("AoC 2022");
 Console.WriteLine("--------");
@@ -12,7 +13,7 @@ if (dayNumberString?.Length == 1)
     dayNumberString = "0" + dayNumberString;
 }
 
-var baseAddress = $"C:\\Users\\sdawson1\\OneDrive - Department for Education\\Documents\\2022AdventOfCode\\{dayNumberString}";
+var baseAddress = $"{SpecialDirectories.MyDocuments}\\2022AdventOfCode\\{dayNumberString}";
 if (!Directory.Exists(baseAddress))
 {
     return;
