@@ -5,7 +5,6 @@
         public AocResult RunSolution(string input)
         {
             string[] elfSplit = { "\r\n\r\n", "\n\n", "\r\r" };
-            //string[] foodSplit = { "\r\n", "\n", "\r" };
 
             var elveStrings = input.Split(elfSplit, StringSplitOptions.RemoveEmptyEntries);
 
