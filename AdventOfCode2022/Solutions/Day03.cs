@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2022.Solutions
+﻿namespace AdventOfCode2022.Solutions
 {
     internal class Day03 : IAocSolution
     {
@@ -17,7 +10,7 @@ namespace AdventOfCode2022.Solutions
             var numberOfGroups = backpacks.Count / 3;
             List<Group> groups = new List<Group>();
 
-            for (int i = 0; i < numberOfGroups; i++ )
+            for (int i = 0; i < numberOfGroups; i++)
             {
                 var groupBackpacks = backpacks.Skip(i * 3).Take(3).ToList();
 
@@ -39,7 +32,7 @@ namespace AdventOfCode2022.Solutions
             {
                 AllItems = new();
 
-                foreach(var character in input.Trim())
+                foreach (var character in input.Trim())
                 {
                     AllItems.Add((Item)Enum.Parse(typeof(Item), character.ToString()));
                 }
@@ -58,8 +51,8 @@ namespace AdventOfCode2022.Solutions
 
         internal enum Item
         {
-            none = 0, 
-            a = 1, b , c, d, e, f, g, h, i, j, k, l,
+            none = 0,
+            a = 1, b, c, d, e, f, g, h, i, j, k, l,
             m, n, o, p, q, r, s, t, u, v, w, x, y, z,
             A = 27, B, C, D, E, F, G, H, I, J, K, L,
             M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z

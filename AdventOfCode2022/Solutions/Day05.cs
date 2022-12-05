@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace AdventOfCode2022.Solutions
 {
@@ -24,12 +23,12 @@ namespace AdventOfCode2022.Solutions
 
             var stacks1 = CloneStacks(stacks);
             var stacks2 = CloneStacks(stacks);
-            foreach(var instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 stacks1 = CarryOutInstruction(instruction, stacks1);
                 stacks2 = CarryOutInstructionStacked(instruction, stacks2);
             }
-            
+
             var result = new AocResult()
             {
                 Result1 = StacksToString(stacks1),
@@ -38,7 +37,7 @@ namespace AdventOfCode2022.Solutions
             return result;
         }
 
-        private string StacksToString(List<Stack<string>> stacks)
+        private static string StacksToString(List<Stack<string>> stacks)
         {
 
             StringBuilder stringBuilder = new();
@@ -56,7 +55,7 @@ namespace AdventOfCode2022.Solutions
             return stringBuilder.ToString();
         }
 
-        private Stack<string> GetStack(int stackIndex, IEnumerable<string> stackLines)
+        private static Stack<string> GetStack(int stackIndex, IEnumerable<string> stackLines)
         {
             var upsideDownStack = new Stack<string>();
 
@@ -78,7 +77,7 @@ namespace AdventOfCode2022.Solutions
             return correctWayRoundStack;
         }
 
-        private List<Stack<string>> CarryOutInstruction(string instruction, List<Stack<string>> stacks)
+        private static List<Stack<string>> CarryOutInstruction(string instruction, List<Stack<string>> stacks)
         {
             var workingStacks = CloneStacks(stacks);
 
@@ -87,7 +86,7 @@ namespace AdventOfCode2022.Solutions
             int moveFromStackIndex = int.Parse(instructionParts[3]) - 1;
             int moveToStackIndex = int.Parse(instructionParts[5]) - 1;
 
-            for(var i = 0; i < itemsToMove; i++)
+            for (var i = 0; i < itemsToMove; i++)
             {
                 if (workingStacks[moveFromStackIndex].Count > 0)
                 {
@@ -100,9 +99,8 @@ namespace AdventOfCode2022.Solutions
             }
             return workingStacks;
         }
-        private List<Stack<string>> CarryOutInstructionStacked(string instruction, List<Stack<string>> stacks)
+        private static List<Stack<string>> CarryOutInstructionStacked(string instruction, List<Stack<string>> stacks)
         {
-            //clone the stack
             var workingStacks = CloneStacks(stacks);
 
             var instructionParts = instruction.Split(' ');
@@ -124,7 +122,7 @@ namespace AdventOfCode2022.Solutions
                 }
             }
 
-            while(temporaryInvertedStack.Count > 0)
+            while (temporaryInvertedStack.Count > 0)
             {
                 workingStacks[moveToStackIndex].Push(temporaryInvertedStack.Pop());
             }
@@ -132,7 +130,7 @@ namespace AdventOfCode2022.Solutions
             return workingStacks;
         }
 
-        public List<Stack<string>> CloneStacks(List<Stack<string>> stacks)
+        private static List<Stack<string>> CloneStacks(List<Stack<string>> stacks)
         {
             var result = new List<Stack<string>>();
             foreach (var stack in stacks)

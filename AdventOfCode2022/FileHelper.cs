@@ -2,7 +2,7 @@
 {
     internal static class FileHelper
     {
-        public static string[] SplitIntoLines(string input, 
+        public static string[] SplitIntoLines(string input,
             StringSplitOptions options = StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
         {
             input.Trim();
