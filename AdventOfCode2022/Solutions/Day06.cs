@@ -10,7 +10,7 @@
             int markerIndex = 0;
             int messageIndex = 0;
 
-            for (int i = 0; !isMarkerFound; i++ )
+            for (int i = 0; !isMarkerFound; i++)
             {
                 markerIndex = i;
                 isMarkerFound = IsAllUniqueAtIndex(input, i, 4);
