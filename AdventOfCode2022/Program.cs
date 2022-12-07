@@ -29,7 +29,7 @@ var solutions = new Dictionary<string, IAocSolution>()
     { "03", new Day03() },
     { "04", new Day04() },
     { "05", new Day05() },
-    //{ "06", new Day06() },
+    { "06", new Day06() },
     //{ "07", new Day07() },
     //{ "08", new Day08() },
     //{ "09", new Day09() },
